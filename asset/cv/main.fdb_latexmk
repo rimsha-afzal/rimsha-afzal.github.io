@@ -1,9 +1,14 @@
 # Fdb version 4
-["pdflatex"] 1775237094.06891 "c:/Users/zinab/Desktop/UNITN/Master's/git/rimsha-afzal.github.io/asset/cv/main.tex" "main.pdf" "main" 1775237094.69143 2
+["pdflatex"] 1775238016.66789 "c:/Users/zinab/Desktop/UNITN/Master's/git/rimsha-afzal.github.io/asset/cv/main.tex" "main.pdf" "main" 1775238017.26572 2
   "C:/Users/zinab/AppData/Local/MiKTeX/miktex/data/le/pdftex/pdflatex.fmt" 1762081615 13321867 fb293142ca02a84aa2a3dc4af513d879 ""
-  "c:/Users/zinab/Desktop/UNITN/Master's/git/rimsha-afzal.github.io/asset/cv/main.tex" 1775237092 0 d41d8cd98f00b204e9800998ecf8427e ""
-  "main.aux" 1775237086 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
-  "main.tex" 1775237092 0 d41d8cd98f00b204e9800998ecf8427e ""
+  "C:/Users/zinab/AppData/Local/Programs/MiKTeX/fonts/tfm/public/cm/cmr10.tfm" 1136765053 1296 45809c5a464d5f32c8f98ba97c1bb47f ""
+  "C:/Users/zinab/AppData/Local/Programs/MiKTeX/tex/latex/base/article.cls" 1749467999 20144 b966087dda3b194755eb460d32e2ef75 ""
+  "C:/Users/zinab/AppData/Local/Programs/MiKTeX/tex/latex/base/size11.clo" 1749467999 8464 f339f4d5391fbe0425b2d94c90e6819e ""
+  "c:/Users/zinab/Desktop/UNITN/Master's/git/rimsha-afzal.github.io/asset/cv/main.tex" 1775237532 1686 13cfed1106284886ac22210ec319e72e ""
+  "config/config.tex" 1775237532 153 59c10055144c017f6a1117acac2bd067 ""
+  "main.aux" 1775238008 32 3985256e7290058c681f74d7a3565a19 "pdflatex"
+  "main.tex" 1775237532 1686 13cfed1106284886ac22210ec319e72e ""
+  "src/package.tex" 0 -1 0 ""
   (generated)
   "main.aux"
   "main.log"

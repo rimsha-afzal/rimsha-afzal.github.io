@@ -2,3 +2,12 @@ PWD c:\Users\zinab\Desktop\UNITN\Master's\git\rimsha-afzal.github.io\asset\cv
 INPUT C:\Users\zinab\AppData\Local\MiKTeX\miktex\data\le\pdftex\pdflatex.fmt
 INPUT c:\Users\zinab\Desktop\UNITN\Master's\git\rimsha-afzal.github.io\asset\cv\main.tex
 OUTPUT main.log
+INPUT C:\Users\zinab\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
+INPUT C:\Users\zinab\AppData\Local\Programs\MiKTeX\tex\latex\base\article.cls
+INPUT C:\Users\zinab\AppData\Local\Programs\MiKTeX\tex\latex\base\size11.clo
+INPUT C:\Users\zinab\AppData\Local\Programs\MiKTeX\tex\latex\base\size11.clo
+INPUT C:\Users\zinab\AppData\Local\Programs\MiKTeX\tex\latex\base\size11.clo
+INPUT C:\Users\zinab\AppData\Local\Programs\MiKTeX\fonts\tfm\public\cm\cmr10.tfm
+INPUT .\config\config.tex
+INPUT .\config\config.tex
+INPUT config\config.tex
