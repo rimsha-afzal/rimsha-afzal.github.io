@@ -26,15 +26,19 @@ jobs:
         run: |
           latexmk -pdf -interaction=nonstopmode -halt-on-error -jobname=cv main.tex
 
-      - name: Convert PDF to HTML
+      - name: Convert PDF to HTML (optional)
         working-directory: asset/cv
         run: |
-          pdftohtml -s -i -q cv.pdf cv.html
+          if command -v pdftohtml >/dev/null 2>&1; then
+            pdftohtml -s -i -q cv.pdf cv.html || true
+          fi
 
       - name: Copy CV artifacts to root
         run: |
           cp asset/cv/cv.pdf cv.pdf
-          cp asset/cv/cv.html cv.html
+          if [ -f asset/cv/cv.html ]; then
+            cp asset/cv/cv.html cv.html
+          fi
 
       - name: Upload CV artifacts
         uses: actions/upload-artifact@v4
