@@ -1,1 +1,599 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfolio of Rimsha Afzal, AI-focused programmer and solutions-minded builder with interests in NLP, machine learning, and user-centered product design." />
+  <title>Rimsha Afzal | AI Portfolio</title>
+  <style>
+    :root {
+      --bg: #f8f5fc;
+      --surface: rgba(255,255,255,0.82);
+      --surface-strong: #ffffff;
+      --text: #24192f;
+      --muted: #665a72;
+      --primary: #8f5bd7;
+      --primary-dark: #6f35c3;
+      --border: rgba(111,53,195,0.14);
+      --shadow: 0 16px 40px rgba(75, 30, 122, 0.08);
+      --radius: 22px;
+      --max: 1120px;
+    }
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      background:
+        radial-gradient(circle at top left, rgba(143,91,215,0.14), transparent 28%),
+        radial-gradient(circle at 90% 10%, rgba(197,167,237,0.28), transparent 24%),
+        linear-gradient(180deg, #fcfbff 0%, var(--bg) 100%);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    .container {
+      width: min(var(--max), calc(100% - 2rem));
+      margin: 0 auto;
+    }
+
+    .nav-wrap {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      backdrop-filter: blur(18px);
+      background: rgba(248,245,252,0.72);
+      border-bottom: 1px solid rgba(111,53,195,0.08);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .brand {
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      font-size: 1.05rem;
+    }
+
+    .brand span { color: var(--primary-dark); }
+
+    .nav-links {
+      display: flex;
+      gap: 1.1rem;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      font-size: 0.95rem;
+      transition: color 0.2s ease;
+    }
+
+    .nav-links a:hover { color: var(--primary-dark); }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      border-radius: 999px;
+      padding: 0.82rem 1.18rem;
+      font-weight: 700;
+      border: 1px solid transparent;
+      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      box-shadow: 0 12px 28px rgba(111, 53, 195, 0.22);
+    }
+
+    .btn-secondary {
+      background: rgba(255,255,255,0.85);
+      color: var(--text);
+      border-color: var(--border);
+    }
+
+    section { padding: 4.4rem 0; }
+
+    .hero {
+      padding: 5.2rem 0 3.6rem;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      padding: 0.42rem 0.8rem;
+      border-radius: 999px;
+      background: rgba(143,91,215,0.10);
+      color: var(--primary-dark);
+      font-weight: 700;
+      font-size: 0.88rem;
+      margin-bottom: 1rem;
+    }
+
+    h1, h2, h3 { line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.04em; }
+    h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
+    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h3 { font-size: 1.2rem; }
+
+    .lead {
+      font-size: 1.08rem;
+      color: var(--muted);
+      max-width: 62ch;
+    }
+
+    .hero-actions {
+      display: flex;
+      gap: 0.9rem;
+      flex-wrap: wrap;
+      margin-top: 1.6rem;
+    }
+
+    .hero-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 1.4rem;
+      box-shadow: var(--shadow);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0.9rem;
+      margin-top: 1rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.7);
+      border-radius: 18px;
+      padding: 1rem;
+      border: 1px solid rgba(111,53,195,0.10);
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.35rem;
+      color: var(--primary-dark);
+      margin-bottom: 0.2rem;
+    }
+
+    .section-heading {
+      display: flex;
+      align-items: end;
+      justify-content: space-between;
+      gap: 1rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      max-width: 60ch;
+      margin: 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 1.25rem;
+    }
+
+    .card {
+      background: var(--surface-strong);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.35rem;
+      box-shadow: var(--shadow);
+    }
+
+    .about-list, .skill-list, .project-list, .contact-list {
+      margin: 0;
+      padding-left: 1.1rem;
+    }
+
+    .muted { color: var(--muted); }
+
+    .project {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .project-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.55rem;
+      margin: 0.7rem 0 1rem;
+    }
+
+    .tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 0.42rem 0.75rem;
+      border-radius: 999px;
+      background: rgba(143,91,215,0.10);
+      color: var(--primary-dark);
+      font-size: 0.86rem;
+      font-weight: 700;
+    }
+
+    .proof-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0.8rem;
+      margin-top: 1rem;
+    }
+
+    .proof {
+      min-height: 120px;
+      border-radius: 18px;
+      border: 1.5px dashed rgba(111,53,195,0.22);
+      background: linear-gradient(135deg, rgba(143,91,215,0.06), rgba(255,255,255,0.92));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 0.8rem;
+      color: var(--muted);
+      font-size: 0.92rem;
+      font-weight: 600;
+    }
+
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .contact-card {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 1.2rem;
+      align-items: stretch;
+    }
+
+    footer {
+      padding: 2rem 0 3rem;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero-grid,
+      .project,
+      .contact-card,
+      .grid-2,
+      .skills-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .section-heading {
+        flex-direction: column;
+        align-items: start;
+      }
+    }
+
+    @media (max-width: 620px) {
+      nav { flex-direction: column; align-items: start; gap: 0.8rem; }
+      .nav-links { gap: 0.85rem; }
+      .stats, .proof-grid { grid-template-columns: 1fr; }
+      section { padding: 3.4rem 0; }
+      .hero { padding-top: 4rem; }
+    }
+  </style>
+</head>
+<body>
+  <div class="nav-wrap">
+    <div class="container">
+      <nav>
+        <a class="brand" href="#top">Rimsha <span>Afzal</span></a>
+        <div class="nav-links">
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#skills">Skills</a>
+          <a href="#contact">Contact</a>
+        </div>
+      </nav>
+    </div>
+  </div>
+
+  <main id="top">
+    <section class="hero">
+      <div class="container hero-grid">
+        <div>
+          <div class="eyebrow">AI Portfolio • GitHub Pages Ready</div>
+          <h1>AI programmer with product thinking, NLP focus, and a strong user lens.</h1>
+          <p class="lead">
+            I’m <strong>Rimsha Afzal</strong>, a Computer Science graduate and current Master’s student in Artificial Intelligence at the University of Trento. I like building AI solutions that are technically solid, understandable to people, and grounded in real needs.
+          </p>
+          <p class="lead">
+            My strongest areas are <strong>applied NLP</strong>, translating requirements into design choices, and connecting technical work with product and user value.
+          </p>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#projects">View Projects</a>
+            <a class="btn btn-secondary" href="#contact">Get in Touch</a>
+          </div>
+        </div>
+
+        <aside class="hero-card">
+          <h3>What I bring</h3>
+          <p class="muted">A mix of AI studies, stakeholder-facing thinking, technical curiosity, and a strong interest in practical machine learning.</p>
+          <div class="stats">
+            <div class="stat">
+              <strong>NLP</strong>
+              <span>Thesis focused on urgency detection in consumer complaints</span>
+            </div>
+            <div class="stat">
+              <strong>AI + UX</strong>
+              <span>Experience turning requirements into interface and solution choices</span>
+            </div>
+            <div class="stat">
+              <strong>HPC</strong>
+              <span>Worked with a Slurm-based scheduler and HPC cluster</span>
+            </div>
+            <div class="stat">
+              <strong>Builder mindset</strong>
+              <span>Interested in AI products, consulting, and solution design</span>
+            </div>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">About</div>
+            <h2>Not just code — context, structure, and practical AI.</h2>
+          </div>
+          <p>
+            I enjoy working at the intersection of programming, AI, and human needs. I’m especially interested in roles where technical understanding meets communication, product reasoning, and solution design.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="card">
+            <h3>Profile</h3>
+            <p class="muted">
+              I’m currently pursuing a Master’s in Artificial Intelligence at the <strong>University of Trento</strong> after completing my Bachelor’s in Computer Science there. I like machine learning, mathematics, and applied AI problems, especially when they have a clear real-world purpose.
+            </p>
+            <p class="muted">
+              I’m also naturally extroverted and comfortable in stakeholder-facing contexts, which is why I’m drawn not only to programming but also to AI consulting, product ownership, and AI solution design.
+            </p>
+          </article>
+
+          <article class="card">
+            <h3>What defines my work</h3>
+            <ul class="about-list muted">
+              <li>Strong interest in machine learning and NLP</li>
+              <li>Ability to translate requirements into structured design choices</li>
+              <li>Attention to usability and clarity, not only technical correctness</li>
+              <li>Comfortable bridging technical and non-technical perspectives</li>
+              <li>Curious, creative, and driven by high standards</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Projects</div>
+            <h2>Selected work</h2>
+          </div>
+          <p>
+            A few projects that show how I think: from AI experimentation and NLP pipelines to user-centered interface work and mobile application design.
+          </p>
+        </div>
+
+        <article class="card project" style="margin-bottom: 1.2rem;">
+          <div>
+            <h3>Designing and Evaluating NLP-Based Pipelines for Urgency Detection in Consumer Complaints</h3>
+            <div class="project-meta">
+              <span class="tag">Master’s Thesis</span>
+              <span class="tag">NLP</span>
+              <span class="tag">BERT</span>
+              <span class="tag">HPC / Slurm</span>
+            </div>
+            <p class="muted">
+              Ongoing thesis project focused on how to design and evaluate NLP pipelines for urgency detection in consumer complaints. The work combines practical problem framing with experimentation and evaluation, with the goal of supporting better complaint prioritization processes.
+            </p>
+            <ul class="project-list muted">
+              <li>Worked on an NLP problem grounded in a real business use case</li>
+              <li>Fine-tuned a BERT-based model for complaint-related classification tasks</li>
+              <li>Used a Slurm-based scheduler and HPC cluster for experimentation</li>
+              <li>Focused on pipeline design, evaluation logic, and practical applicability</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Proof of work</h3>
+            <div class="proof-grid">
+              <div class="proof">Insert evaluation graph</div>
+              <div class="proof">Insert confusion matrix</div>
+              <div class="proof">Insert pipeline diagram</div>
+              <div class="proof">Insert key results / metrics</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project" style="margin-bottom: 1.2rem;">
+          <div>
+            <h3>OpenMove Internship</h3>
+            <div class="project-meta">
+              <span class="tag">UX/UI Internship</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Requirements</span>
+              <span class="tag">Kotlin</span>
+            </div>
+            <p class="muted">
+              During my internship at OpenMove in Trento, I worked on digital mobility solutions with a strong focus on understanding user needs and translating them into interface and functional choices.
+            </p>
+            <ul class="project-list muted">
+              <li>Conducted stakeholder interviews to clarify requirements</li>
+              <li>Translated needs into interface logic and functional design choices</li>
+              <li>Created Figma mockups and interactive prototypes</li>
+              <li>Collaborated with designers and developers to support implementation</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Proof of work</h3>
+            <div class="proof-grid">
+              <div class="proof">Insert Figma mockup</div>
+              <div class="proof">Insert prototype flow</div>
+              <div class="proof">Insert UI screen</div>
+              <div class="proof">Insert requirement → design example</div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project">
+          <div>
+            <h3>Friendly Routes App</h3>
+            <div class="project-meta">
+              <span class="tag">Android App</span>
+              <span class="tag">Kotlin</span>
+              <span class="tag">Firebase</span>
+              <span class="tag">Usability</span>
+            </div>
+            <p class="muted">
+              Academic mobile app project aimed at simplifying travel planning through a clear, user-friendly experience. I contributed to both the app structure and the design logic behind the interface.
+            </p>
+            <ul class="project-list muted">
+              <li>Worked on design and development of an Android application</li>
+              <li>Used Kotlin and Firebase for core implementation</li>
+              <li>Focused on usability, clarity, and intuitive interactions</li>
+            </ul>
+          </div>
+          <div>
+            <h3>Proof of work</h3>
+            <div class="proof-grid">
+              <div class="proof">Insert Android mockup</div>
+              <div class="proof">Insert app screenshot</div>
+              <div class="proof">Insert user flow</div>
+              <div class="proof">Insert feature overview</div>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Skills</div>
+            <h2>Technical strengths and working style</h2>
+          </div>
+          <p>
+            I’m strongest when AI knowledge, structure, communication, and real user needs have to come together in one solution.
+          </p>
+        </div>
+
+        <div class="skills-grid">
+          <article class="card">
+            <h3>AI & Data</h3>
+            <ul class="skill-list muted">
+              <li>Machine Learning</li>
+              <li>Natural Language Processing</li>
+              <li>Data Analysis</li>
+              <li>Model Evaluation</li>
+              <li>Experimentation mindset</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Programming & Tools</h3>
+            <ul class="skill-list muted">
+              <li>Python</li>
+              <li>Kotlin</li>
+              <li>Java</li>
+              <li>C++</li>
+              <li>JavaScript / HTML / CSS</li>
+              <li>Figma, Firebase, VS Code, Android Studio</li>
+            </ul>
+          </article>
+
+          <article class="card">
+            <h3>Product & Collaboration</h3>
+            <ul class="skill-list muted">
+              <li>Requirements gathering</li>
+              <li>Stakeholder communication</li>
+              <li>Solution design thinking</li>
+              <li>User-centered reasoning</li>
+              <li>Cross-functional collaboration</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Contact</div>
+            <h2>Let’s build something meaningful.</h2>
+          </div>
+          <p>
+            I’m open to opportunities in AI, applied NLP, AI products, and roles that bridge technical work with user and business needs.
+          </p>
+        </div>
+
+        <div class="card contact-card">
+          <div>
+            <h3>Get in touch</h3>
+            <ul class="contact-list muted">
+              <li>Email: rimshaafzal2016@gmail.com</li>
+              <li>Location: Trento, Italy</li>
+              <li>LinkedIn: add your profile link here</li>
+              <li>GitHub: add your GitHub profile link here</li>
+            </ul>
+            <div class="hero-actions" style="margin-top: 1.1rem;">
+              <a class="btn btn-primary" href="mailto:rimshaafzal2016@gmail.com">Email Me</a>
+              <a class="btn btn-secondary" href="#top">Back to Top</a>
+            </div>
+          </div>
+          <div class="card" style="box-shadow:none; background: linear-gradient(135deg, rgba(143,91,215,0.08), rgba(255,255,255,0.95));">
+            <h3>Quick note</h3>
+            <p class="muted">
+              This portfolio is designed as a clean GitHub Pages starter. You can replace the placeholder proof boxes with your thesis graphs, Figma screens, Android mockups, and any screenshots or diagrams that support your claims.
+            </p>
+            <p class="muted">
+              You can also later split this into multiple pages or convert it to a framework once you want animations, CMS-style updates, or reusable components.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      © 2026 Rimsha Afzal · Built for GitHub Pages · AI portfolio starter
+    </div>
+  </footer>
+</body>
+</html>
