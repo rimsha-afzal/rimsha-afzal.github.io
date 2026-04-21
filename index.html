@@ -110,6 +110,45 @@
 
     .hero {
       padding: 5.2rem 0 3.6rem;
+      background:
+        radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.42) 18%, transparent 42%),
+        radial-gradient(circle at 18% 18%, rgba(191, 133, 255, 0.42) 0%, rgba(191, 133, 255, 0.18) 22%, transparent 48%),
+        radial-gradient(circle at 52% 24%, rgba(255, 214, 153, 0.52) 0%, rgba(255, 214, 153, 0.22) 18%, transparent 44%),
+        radial-gradient(circle at 82% 20%, rgba(201, 157, 255, 0.42) 0%, rgba(201, 157, 255, 0.16) 20%, transparent 46%),
+        radial-gradient(circle at 48% 72%, rgba(150, 145, 255, 0.30) 0%, rgba(150, 145, 255, 0.12) 18%, transparent 42%);
+    }
+
+    .hero > .container:first-of-type {
+      width: 100%;
+      max-width: none;
+      padding: 0;
+    }
+
+    .hero-box {
+      width: 100%;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: transparent;
+      border: 0;
+      box-shadow: none;
+      padding: 2rem 1rem;
+    }
+
+    .hero-box h1 {
+      margin: 0;
+      max-width: 12ch;
+      font-size: clamp(2.5rem, 7vw, 6rem);
+      line-height: 0.95;
+    }
+
+    .hero-layout {
+      display: grid;
+      align-items: center;
+      gap: 2rem;
+      background: transparent;
     }
 
     .hero-grid {
@@ -131,8 +170,8 @@
     }
 
     h1, h2, h3 { line-height: 1.15; margin: 0 0 1rem; letter-spacing: -0.04em; }
-    h1 { font-size: clamp(2.6rem, 6vw, 4.5rem); }
-    h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); }
+    h1 { font-size: clamp(2rem, 5vw, 3.5rem); }
+    h2 { font-size: clamp(1.4rem, 3.5vw, 2.2rem); }
     h3 { font-size: 1.2rem; }
 
     .lead {
@@ -156,11 +195,18 @@
       box-shadow: var(--shadow);
     }
 
+    .stats-wrapper {
+      flex: 1;
+      overflow-y: auto;
+    }
+
     .stats {
-      display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      display: flex;
+      flex-direction: column;
       gap: 0.9rem;
       margin-top: 1rem;
+      height: 550px;
+      overflow-y: auto;
     }
 
     .stat {
@@ -179,7 +225,7 @@
 
     .section-heading {
       display: flex;
-      align-items: end;
+      align-items: flex-end;
       justify-content: space-between;
       gap: 1rem;
       margin-bottom: 1.6rem;
@@ -189,6 +235,39 @@
       color: var(--muted);
       max-width: 60ch;
       margin: 0;
+    }
+
+    .projects-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .projects-intro .section-heading {
+      flex-direction: column;
+      align-items: start;
+      margin-bottom: 0;
+    }
+
+    .projects-intro .section-heading p {
+      max-width: 65ch;
+    }
+
+    .projects-list {
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      gap: 0.9rem;
+    }
+
+    .projects-list .stat {
+      margin: 0;
+      height: auto;
+    }
+
+    .projects-list .stat strong {
+      font-size: 1.05rem;
     }
 
     .grid-2 {
@@ -205,18 +284,57 @@
       box-shadow: var(--shadow);
     }
 
+    .project-card {
+      margin-bottom: 1.2rem;
+    }
+
     .about-list, .skill-list, .project-list, .contact-list {
       margin: 0;
       padding-left: 1.1rem;
     }
 
+    .contact-list a {
+      color: var(--primary-dark);
+      text-decoration: underline;
+      text-decoration-color: rgba(111, 53, 195, 0.5);
+      text-underline-offset: 0.18em;
+      text-decoration-thickness: 2px;
+      font-weight: 700;
+      transition: color 0.2s ease, text-decoration-color 0.2s ease;
+    }
+
+    .contact-list a:hover {
+      color: #4f2397;
+      text-decoration-color: #4f2397;
+    }
+
     .muted { color: var(--muted); }
 
     .project {
-      display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
+      display: flex;
+      flex-direction: column;
       gap: 1.25rem;
       align-items: start;
+    }
+
+    .figma-project {
+      display: grid;
+      grid-template-columns: minmax(0, 1.05fr) minmax(360px, 0.95fr);
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .figma-project > div:last-child {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .figma-project > div:last-child h3 {
+      align-self: center;
+      text-align: center;
+      width: 100%;
     }
 
     .project-meta {
@@ -259,6 +377,20 @@
       font-weight: 600;
     }
 
+    .proof-embed {
+      padding: 0;
+      min-height: 520px;
+      overflow: hidden;
+    }
+
+    .proof-embed iframe {
+      width: 100%;
+      height: 100%;
+      min-height: 520px;
+      border: 0;
+      display: block;
+    }
+
     .skills-grid {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -281,9 +413,11 @@
     @media (max-width: 900px) {
       .hero-grid,
       .project,
+      .figma-project,
       .contact-card,
       .grid-2,
-      .skills-grid {
+      .skills-grid,
+      .projects-layout {
         grid-template-columns: 1fr;
       }
 
@@ -291,14 +425,26 @@
         flex-direction: column;
         align-items: start;
       }
+
+      .projects-list {
+        gap: 0.75rem;
+      }
     }
 
     @media (max-width: 620px) {
       nav { flex-direction: column; align-items: start; gap: 0.8rem; }
       .nav-links { gap: 0.85rem; }
-      .stats, .proof-grid { grid-template-columns: 1fr; }
+      .proof-grid { grid-template-columns: 1fr; }
       section { padding: 3.4rem 0; }
       .hero { padding-top: 4rem; }
+      .hero-box {
+        min-height: 100vh;
+        padding: 1.5rem 1rem;
+      }
+      .proof-embed,
+      .proof-embed iframe {
+        min-height: 430px;
+      }
     }
   </style>
 </head>
@@ -319,47 +465,57 @@
 
   <main id="top">
     <section class="hero">
+      
+      <div class="container">
+        <div class="hero-box">
+          <h1>RIMSHA AFZAL</h1>
+        </div>
+      </div>
+    
+
       <div class="container hero-grid">
         <div>
-          <div class="eyebrow">AI Portfolio • GitHub Pages Ready</div>
-          <h1>Master's Student in Artificial Intelligence Systems | AI, NLP & User-Centered Solution Design.</h1>
+          <h1>Master's student in artificial intelligence systems, AI, NLP, and user-centered solution design</h1>
           <p class="lead">
-            I am <strong>Rimsha Afzal</strong>, a Computer Science graduate and current Master’s student in Artificial Intelligence at the University of Trento. 
-            With a background that combines technical experimentation, AI learning, and user-centered design. 
+            I am <strong>Rimsha Afzal</strong>, a computer science graduate and current Master's student in Artificial Intelligence at the University of Trento.
+            My background combines technical experimentation, AI learning, and user-centered design.
             My experience ranges from UI/UX work and stakeholder interviews to an NLP thesis on transformer-based urgency detection in financial complaints.
-             I like working on real problems, understanding user needs, and turning them into structured requirements. 
-             </p>
+            I like working on real problems, understanding user needs, and turning them into structured requirements.
+          </p>
           <p class="lead">
-            I am currently expanding my skills in <strong>machine learning</strong> , <strong>natural language processing</strong>, <strong>deep learning</strong> and <strong>autonomous software agents</strong>.
+            I am currently expanding my skills in <strong>machine learning</strong>, <strong>natural language processing</strong>, <strong>deep learning</strong>, and <strong>autonomous software agents</strong>.
           </p>
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">View Projects</a>
             <a class="btn btn-secondary" href="#contact">Get in Touch</a>
-            <a class="btn btn-secondary" href="/cv.pdf" target="_blank" rel="noopener">Scarica CV PDF</a>
+            <a class="btn btn-secondary" href="/cv.pdf" target="_blank" rel="noopener">Download CV</a>
           </div>
         </div>
 
         <aside class="hero-card">
           <h3>What I bring</h3>
           <p class="muted">A mix of AI studies, stakeholder-facing thinking, technical curiosity, and a strong interest in practical machine learning.</p>
-          <div class="stats">
-            <div class="stat">
-              <strong>AI and NLP Foundation</strong>
-              <span>Hands-on experience with data preprocessing, transformer-based models fine-tuning, sentiment analysis, cross-validation and model evaluation through Bachelor's Thesis</span>
-            </div>
-            <div class="stat">
-              <strong>Problem Framing and Requirements Translation</strong>
-              <span>Ability to analyze problems, gather needs through stakeholder interviews and questionnaires, and translate insights into structured requirements and solution ideas</span>
-            </div>
-            <div class="stat">
-              <strong>UI/UX & Prototyping</strong>
-              <span>Strong foundation in wireframing, mockups, and interface design using tools such as Figma and Framer, with a focus on usability and clarity</span>
-            </div>
-            <div class="stat">
-              <strong>Growth mindset in AI</strong>
-              <span>Currently building deeper expertise in machine learning, NLP, deep learning, and autonomous agents, with a strong interest in applying AI to real-world products and workflows</span>
+          <div class="stats-wrapper">
+            <div class="stats">
+              <div class="stat">
+                <strong>AI and NLP Foundation</strong>
+                <span>Hands-on experience with data preprocessing, transformer-based models fine-tuning, sentiment analysis, cross-validation and model evaluation through Bachelor's Thesis.</span>
+              </div>
+              <div class="stat">
+                <strong>Problem Framing and Requirements Translation</strong>
+                <span>Ability to analyze problems, gather needs through stakeholder interviews and questionnaires, and translate insights into structured requirements and solution ideas.</span>
+              </div>
+              <div class="stat">
+                <strong>UI/UX & Prototyping</strong>
+                <span>Strong foundation in wireframing, mockups, and interface design using tools such as Figma and Framer, with a focus on usability and clarity.</span>
+              </div>
+              <div class="stat">
+                <strong>Growth mindset in AI</strong>
+                <span>Currently building deeper expertise in machine learning, NLP, deep learning, and autonomous agents, with a strong interest in applying AI to real-world products and workflows.</span>
+              </div>
             </div>
           </div>
+          
         </aside>
       </div>
     </section>
@@ -369,24 +525,22 @@
         <div class="section-heading">
           <div>
             <div class="eyebrow">About</div>
-            <h2>Not just code — combining AI, Design, and Problem Solving.</h2>
+            <h2>Combining AI, design, and problem solving</h2>
           </div>
           <p>
-            I’m also naturally extroverted and comfortable in stakeholder-facing contexts, which is why I’m drawn not only to programming but also to AI consulting, product ownership, and AI solution design.
+            I am comfortable in stakeholder-facing contexts, which is why I am drawn not only to programming but also to <strong>AI consulting</strong>, <strong>product ownership</strong>, and <strong>AI solution design</strong>.
           </p>
         </div>
 
         <div class="grid-2">
           <article class="card">
             <h3>Profile</h3>
-            <p class="muted">
-              <ul class="about list muted">
-                <li>Master's in Artificial Intelligence Systems - University of Trento</li>
-                <li>Bachelor's Degree in Computer Science - Univeristy of Trento</li>
-                <li>NLP thesis on transformer-based complaint classification and urgency detection</li>
-                <li>Internship in UI/UX and product design - OpenMove</li>
-              </ul>
-            </p>
+            <ul class="about-list muted">
+              <li>Master's in Artificial Intelligence Systems - University of Trento</li>
+              <li>Bachelor's Degree in Computer Science - University of Trento</li>
+              <li>NLP thesis on transformer-based complaint classification and urgency detection</li>
+              <li>Internship in UI/UX and product design - OpenMove</li>
+            </ul>
           </article>
 
           <article class="card">
@@ -406,14 +560,14 @@
         <div class="section-heading">
           <div>
             <div class="eyebrow">Projects</div>
-            <h2>Selected work</h2>
+            <h2>Featured projects</h2>
           </div>
           <p>
-            A few projects that show how I think: from AI experimentation and NLP pipelines to user-centered interface work and mobile application design.
+            A selection of completed projects that show how I think, from AI experimentation and NLP pipelines to user-centered interface work and mobile application design.
           </p>
         </div>
 
-        <article class="card project" style="margin-bottom: 1.2rem;">
+        <article class="card project project-card figma-project">
           <div>
             <h3>Designing and Evaluating Transformer-Based Pipelines for Urgency Detection in Financial Product Complaints</h3>
             <div class="project-meta">
@@ -432,12 +586,12 @@
               The project emphasized not only model performance but also pipeline structure, evaluation logic, and the practical applicability of NLP systems in complaint-management contexts.
              </p>
             <ul class="project-list muted">
-              <li>Data preprocessing - cleaned and split the complaint dataset into training and test sets</li>
-              <li>Text representation - tokenized complaints texts using BERT tokenizers</li>
-              <li>Complaint classification - fine-tuned BERT and FinBERT models to predict complaint types</li>
-              <li>Model experimentation - ran training jobs on an HPC cluster using SLURM</li>
-              <li>Sentiment analysis - compared multiple transformer models (FinBERT-tone, Twitter RoBERTa, multilingual BERT, DistilRoBERTa)</li>
-              <li>Urgency Estimation - combined classification outputs and sentiment scores to derive an urgency metric</li>
+              <li><strong>Data preprocessing</strong> - cleaned and split the complaint dataset into training and test sets</li>
+              <li><strong>Text representation</strong> - tokenized complaints texts using BERT tokenizers</li>
+              <li><strong>Complaint classification</strong> - fine-tuned BERT and FinBERT models to predict complaint types</li>
+              <li><strong>Model experimentation</strong> - ran training jobs on an HPC cluster using SLURM</li>
+              <li><strong>Sentiment analysis</strong> - compared multiple transformer models (FinBERT-tone, Twitter RoBERTa, multilingual BERT, DistilRoBERTa)</li>
+              <li><strong>Urgency Estimation</strong> - combined classification outputs and sentiment scores to derive an urgency metric</li>
             </ul>
           </div>
           <div>
@@ -448,7 +602,7 @@
           </div>
         </article>
 
-        <article class="card project" style="margin-bottom: 1.2rem;">
+        <article class="card project project-card figma-project">
           <div>
             <h3>OpenMove Internship</h3>
             <div class="project-meta">
@@ -458,57 +612,100 @@
               <span class="tag">Kotlin</span>
             </div>
             <p class="muted">
-              During my internship at OpenMove in Trento, I worked on digital mobility solutions with a strong focus on understanding user needs and translating them into interface and functional choices.
+            During my internship at OpenMove in Trento, I worked on the early design of a customer-care handling solution within the broader context of digital mobility services. 
+            The project focused on understanding operational needs and translating them into interface logic, user flows, and functional design choices. 
+            Starting from stakeholder interviews, I explored the main pain points of the existing process and used those insights to shape mockups and interactive prototypes in Figma.
+            The experience strengthened my interest in the early stages of software development, where problem understanding, requirement translation, and solution design play a central role.          
             </p>
+            <h3>Key Contributions</h3>
             <ul class="project-list muted">
-              <li>Conducted stakeholder interviews to clarify requirements</li>
-              <li>Translated needs into interface logic and functional design choices</li>
-              <li>Created Figma mockups and interactive prototypes</li>
-              <li>Collaborated with designers and developers to support implementation</li>
+              <li>Investigated the problem space through stakeholder interviews, collecting information on workflow pain points, operational needs, and expectations for the future interface</li>
+              <li>Structured qualitative input into design requirements, identifying which needs had to be reflected in navigation flows, screen logic, and key interface elements</li>
+              <li>Designed Figma mockups and an interactive prototype to translate early requirements into a tangible solution concept</li>
+              <li>Defined interface choices not only from a visual perspective, but also in relation to usability, clarity of actions, and support for the underlying customer-care process</li>
             </ul>
           </div>
           <div>
             <h3>Proof of work</h3>
-            <div class="proof-grid">
-              <div class="proof">Insert Figma mockup</div>
-              <div class="proof">Insert prototype flow</div>
-              <div class="proof">Insert UI screen</div>
-              <div class="proof">Insert requirement → design example</div>
+            <div class="proof proof-embed">
+              <iframe
+                title="OpenMove prototype"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F2WomZlc21WDT9HHEcZoKUj%2FCustomer-Service%3Fnode-id%3D0-1%26t%3DLDvB04jBcInx0nQl-1"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
         </article>
 
-        <article class="card project">
+        <article class="card project figma-project">
           <div>
-            <h3>Friendly Routes App</h3>
-            <div class="project-meta">
-              <span class="tag">Android App</span>
-              <span class="tag">Kotlin</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">Usability</span>
-            </div>
+            <h3>Start-up Lab - From idea validation to MVP design</h3>
             <p class="muted">
-              Academic mobile app project aimed at simplifying travel planning through a clear, user-friendly experience. I contributed to both the app structure and the design logic behind the interface.
+              During the Start-up Lab at the School of Innovation in Trento, I worked in a team-based project focused on the early stages of start-up creation, from idea generation to problem validation, MVP definition, and basic cash-flow analysis. 
+              As team leader, I coordinated the group’s work across different phases of the project and contributed to shaping both the problem framing and the solution direction. 
+              The experience involved developing presentations, conducting interviews with people outside the classroom to validate assumptions, and translating insights into a first MVP concept supported by a mockup. 
+              Beyond strengthening my understanding of innovation management, the project helped me develop leadership, public speaking, and communication skills in contexts that required both structured reasoning and external interaction.
             </p>
+            <h3>Key contributions</h3>
             <ul class="project-list muted">
-              <li>Worked on design and development of an Android application</li>
-              <li>Used Kotlin and Firebase for core implementation</li>
-              <li>Focused on usability, clarity, and intuitive interactions</li>
+              <li>Led the team through the different phases of the start-up process, helping structure work from idea generation to validation and MVP definition</li>
+              <li>Conducted external interviews to test assumptions, gather feedback, and better understand whether the identified problem was relevant and worth solving</li>
+              <li>Contributed to transforming early ideas into a more concrete solution concept, supported by an MVP mockup</li>
+              <li>Prepared and delivered presentations to communicate the project’s logic, development, and business potential</li>
+              <li>Worked on the economic side of the project through basic cash-flow reasoning, linking the solution idea to questions of feasibility and sustainability</li>
             </ul>
           </div>
           <div>
             <h3>Proof of work</h3>
-            <div class="proof-grid">
-              <div class="proof">Insert Android mockup</div>
-              <div class="proof">Insert app screenshot</div>
-              <div class="proof">Insert user flow</div>
-              <div class="proof">Insert feature overview</div>
+            <div class="proof proof-embed">
+              <iframe
+                title="MVP prototype"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fn5NnyaraeGJjT2q2Hwbrxx%2FRoutely-MVP%3Fnode-id%3D1-4%26p%3Df%26t%3DBHfzEHr03QXgZUJu-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D0%253A1%26starting-point-node-id%3D1%253A4"
+                allowfullscreen>
+              </iframe>
             </div>
           </div>
         </article>
       </div>
     </section>
 
+    <section class="projects">
+      <div class="container">
+        <div class="projects-layout">
+          <div class="projects-intro">
+            <div class="section-heading">
+              <div>
+                <div class="eyebrow">Ongoing University Projects</div>
+                <h2>Ongoing projects</h2>
+              </div>
+              <p>
+                A selection of ongoing university projects through which I am deepening my practical understanding of AI systems, from transformers and multimodal models to autonomous agents.
+              </p>
+            </div>
+          </div>
+
+          <div class="projects-list">
+            <div class="stat">
+              <strong>Deep Learning - CLIP based vision language models</strong>
+              <span>Exploring multimodal learning architectures based on CLIP, focusing on how visual and textual embeddings can be aligned to support cross-modal understanding tasks.</span>
+            </div>
+            <div class="stat">
+              <strong>Natural Language Processing - Transformer experiments</strong>
+              <span>Investigating transformer-based methods for classification and text understanding across different NLP tasks.</span>
+            </div>
+            <div class="stat">
+              <strong>Autonomous Software Agents - Tool use and planning</strong>
+              <span>Studying how agents can break down tasks, use tools, and coordinate multi-step workflows reliably.</span>
+            </div>
+            <div class="stat">
+              <strong>Designing Large-Scale AI Systems</strong>
+              <span>Thinking about scalability, coordination, and deployment trade-offs in applied AI systems.</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
     <section id="skills">
       <div class="container">
         <div class="section-heading">
@@ -539,7 +736,6 @@
               <li>Python</li>
               <li>Kotlin</li>
               <li>Java</li>
-              <li>C++</li>
               <li>JavaScript / HTML / CSS</li>
               <li>Figma, Firebase, VS Code, Android Studio</li>
             </ul>
@@ -567,7 +763,7 @@
             <h2>Let’s build something meaningful.</h2>
           </div>
           <p>
-            I’m open to opportunities in AI, applied NLP, AI products, and roles that bridge technical work with user and business needs.
+            I’m open to opportunities in <strong>AI</strong>, <strong>applied NLP</strong>, <strong>AI products</strong>, and roles that bridge <strong>technical work</strong> with <strong>user</strong> and <strong>business needs</strong>.
           </p>
         </div>
 
@@ -575,10 +771,10 @@
           <div>
             <h3>Get in touch</h3>
             <ul class="contact-list muted">
-              <li>Email: rimshaafzal2016@gmail.com</li>
-              <li>Location: Trento, Italy</li>
-              <li>LinkedIn: <a href="https://www.linkedin.com/in/rimsha-afzal-b0537123b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BTbhXtoP0RS6goeD96Ggzjg%3D%3D">Rimsha Afzal</a></li>
-              <li>GitHub: <a href="https://github.com/rimsha-afzal">rimsha-afzal</a></li>
+              <li><strong>Email</strong>: rimshaafzal2016@gmail.com</li>
+              <li><strong>Location</strong>: Trento, Italy</li>
+              <li><strong>LinkedIn</strong>: <a href="https://www.linkedin.com/in/rimsha-afzal-b0537123b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BTbhXtoP0RS6goeD96Ggzjg%3D%3D">Rimsha Afzal</a></li>
+              <li><strong>GitHub</strong>: <a href="https://github.com/rimsha-afzal">rimsha-afzal</a></li>
             </ul>
             <div class="hero-actions" style="margin-top: 1.1rem;">
               <a class="btn btn-primary" href="mailto:rimshaafzal2016@gmail.com">Email Me</a>
@@ -588,6 +784,7 @@
         </div>
       </div>
     </section>
+    
   </main>
 
   <footer>
