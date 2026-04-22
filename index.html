@@ -12,6 +12,7 @@
       --surface-strong: #ffffff;
       --text: #24192f;
       --muted: #665a72;
+      --heading-soft: #6f6580;
       --primary: #8f5bd7;
       --primary-dark: #6f35c3;
       --border: rgba(111,53,195,0.14);
@@ -109,7 +110,7 @@
     section { padding: 4.4rem 0; }
 
     .hero {
-      padding: 5.2rem 0 3.6rem;
+      padding: 3.2rem 0 3.6rem;
       background:
         radial-gradient(circle at 50% 40%, rgba(255, 255, 255, 0.82) 0%, rgba(255, 255, 255, 0.42) 18%, transparent 42%),
         radial-gradient(circle at 18% 18%, rgba(191, 133, 255, 0.42) 0%, rgba(191, 133, 255, 0.18) 22%, transparent 48%),
@@ -126,10 +127,12 @@
 
     .hero-box {
       width: 100%;
-      min-height: 100vh;
+      min-height: calc(100vh - 5.5rem);
       display: flex;
+      flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 0.4rem;
       text-align: center;
       background: transparent;
       border: 0;
@@ -138,10 +141,26 @@
     }
 
     .hero-box h1 {
-      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin: 0 0 1rem;
       max-width: 12ch;
       font-size: clamp(2.5rem, 7vw, 6rem);
       line-height: 0.95;
+    }
+
+    .hero-box h2 {
+      margin: 0 0 1rem;
+      color: var(--heading-soft);
+      font-weight: 550;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-box h3 {
+      margin: 0;
+      color: var(--muted);
+      max-width: 42ch;
     }
 
     .hero-layout {
@@ -344,6 +363,29 @@
       margin: 0.7rem 0 1rem;
     }
 
+    .thesis-summary {
+      display: grid;
+      grid-template-columns: minmax(0, 1.35fr) minmax(280px, 0.95fr);
+      gap: 1.25rem;
+      align-items: start;
+    }
+
+    .thesis-content {
+      grid-column: 1 / -1;
+      width: 100%;
+    }
+
+    .thesis-summary .project-list {
+      margin-top: 0.2rem;
+    }
+
+    .thesis-pipeline {
+      grid-column: 1 / -1;
+      width: 100%;
+      max-width: 760px;
+      justify-self: center;
+    }
+
     .tag {
       display: inline-flex;
       align-items: center;
@@ -377,10 +419,104 @@
       font-weight: 600;
     }
 
+    .image-trigger {
+      border: 0;
+      padding: 0;
+      background: transparent;
+      width: 100%;
+      cursor: zoom-in;
+      border-radius: 12px;
+      overflow: hidden;
+    }
+
+    .image-trigger img {
+      width: 100%;
+      height: auto;
+      transition: transform 0.22s ease;
+    }
+
+    .image-trigger:hover img,
+    .image-trigger:focus-visible img {
+      transform: scale(1.02);
+    }
+
+    .image-modal {
+      position: fixed;
+      inset: 0;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      background: rgba(20, 14, 28, 0.78);
+      padding: 1.2rem;
+      z-index: 300;
+    }
+
+    .image-modal.open {
+      display: flex;
+    }
+
+    .image-modal-content {
+      position: relative;
+      width: min(1200px, 96vw);
+      max-height: 92vh;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.35);
+      box-shadow: 0 24px 52px rgba(0, 0, 0, 0.34);
+      background: #120f17;
+    }
+
+    .image-modal-content img {
+      display: block;
+      width: 100%;
+      height: auto;
+      max-height: 92vh;
+      object-fit: contain;
+    }
+
+    .image-modal-content iframe {
+      display: none;
+      width: 100%;
+      height: min(92vh, 900px);
+      border: 0;
+      background: #ffffff;
+    }
+
+    .image-modal-close {
+      position: absolute;
+      top: 0.55rem;
+      right: 0.55rem;
+      border: 0;
+      background: rgba(14, 10, 18, 0.65);
+      color: #ffffff;
+      font-size: 1.4rem;
+      line-height: 1;
+      width: 2rem;
+      height: 2rem;
+      border-radius: 999px;
+      cursor: pointer;
+    }
+
     .proof-embed {
+      position: relative;
       padding: 0;
       min-height: 520px;
       overflow: hidden;
+    }
+
+    .expand-embed-btn {
+      position: absolute;
+      top: 0.65rem;
+      right: 0.65rem;
+      z-index: 2;
+      border: 1px solid rgba(255, 255, 255, 0.4);
+      border-radius: 999px;
+      padding: 0.4rem 0.75rem;
+      background: rgba(16, 11, 23, 0.7);
+      color: #fff;
+      font-size: 0.82rem;
+      font-weight: 700;
+      cursor: pointer;
     }
 
     .proof-embed iframe {
@@ -429,6 +565,10 @@
       .projects-list {
         gap: 0.75rem;
       }
+
+      .thesis-summary {
+        grid-template-columns: 1fr;
+      }
     }
 
     @media (max-width: 620px) {
@@ -465,22 +605,22 @@
 
   <main id="top">
     <section class="hero">
-      
       <div class="container">
         <div class="hero-box">
           <h1>RIMSHA AFZAL</h1>
+          <h2>Product Analyst | Junior AI Engineer | AI/Data Analyst</h2>
+          <h3>Turning real-world problems and user needs into structured AI-driven solutions</h3>
         </div>
       </div>
-    
 
       <div class="container hero-grid">
         <div>
-          <h1>Master's student in artificial intelligence systems, AI, NLP, and user-centered solution design</h1>
+          <h1>About Me</h1>
           <p class="lead">
-            I am <strong>Rimsha Afzal</strong>, a computer science graduate and current Master's student in Artificial Intelligence at the University of Trento.
-            My background combines technical experimentation, AI learning, and user-centered design.
-            My experience ranges from UI/UX work and stakeholder interviews to an NLP thesis on transformer-based urgency detection in financial complaints.
-            I like working on real problems, understanding user needs, and turning them into structured requirements.
+            I am <strong>Rimsha Afzal</strong>, a Computer Science graduate and current Master’s student in <strong>Artificial Intelligence Systems</strong> at the University of Trento. My background combines technical learning with a strong interest in <strong>problem understanding</strong>, <strong>requirement translation</strong>, and <strong>solution design</strong>.
+          </p>
+          <p class="lead">
+            Through academic and project work, I have explored different sides of AI, from UI/UX prototyping and stakeholder interviews to NLP experimentation through my thesis on transformer-based urgency detection in financial complaints. I am especially interested in roles where technical thinking and real-world problem solving come together.
           </p>
           <p class="lead">
             I am currently expanding my skills in <strong>machine learning</strong>, <strong>natural language processing</strong>, <strong>deep learning</strong>, and <strong>autonomous software agents</strong>.
@@ -494,7 +634,7 @@
 
         <aside class="hero-card">
           <h3>What I bring</h3>
-          <p class="muted">A mix of AI studies, stakeholder-facing thinking, technical curiosity, and a strong interest in practical machine learning.</p>
+          <p class="muted">A mix of AI learning and stakeholder-driven problem solving. </p>
           <div class="stats-wrapper">
             <div class="stats">
               <div class="stat">
@@ -536,19 +676,19 @@
           <article class="card">
             <h3>Profile</h3>
             <ul class="about-list muted">
-              <li>Master's in Artificial Intelligence Systems - University of Trento</li>
-              <li>Bachelor's Degree in Computer Science - University of Trento</li>
-              <li>NLP thesis on transformer-based complaint classification and urgency detection</li>
-              <li>Internship in UI/UX and product design - OpenMove</li>
+              <li><strong>Master’s in Artificial Intelligence Systems</strong> — University of Trento</li>
+              <li><strong>Bachelor’s Degree in Computer Science</strong> — University of Trento</li>
+              <li><strong>NLP thesis</strong> on transformer-based complaint classification and urgency detection</li>
+              <li><strong>UI/UX and product design internship</strong> — OpenMove</li>
             </ul>
           </article>
 
           <article class="card">
             <h3>What defines my work</h3>
             <ul class="about-list muted">
-              <li>Problem-first thinking: starting from the problem before jumping into technology. Understanding user needs and system constraints helps me design more meaningful solutions</li>
-              <li>Human-centered perspective: even when working with AI systems, I believe usability and clarity are fundamental. Interfaces should translate complex technology into understandable tools</li>
-              <li>Learning-driven approach: artificial intelligence evolves rapidly, and I enjoy continuously expanding my knowledge through experimentation, academic work, and technical projects </li>
+              <li><strong>Problem-first thinking:</strong> I like starting from the problem before jumping into technology, using user needs and system constraints to shape more meaningful solutions.</li>
+              <li><strong>Human-centered perspective:</strong> Even when working with AI systems, I believe <strong>usability</strong> and <strong>clarity</strong> are essential to make technology understandable and useful.</li>
+              <li><strong>Learning-driven approach:</strong> I enjoy continuously expanding my knowledge through <strong>experimentation</strong>, <strong>academic work</strong>, and <strong>technical projects</strong>.</li>
             </ul>
           </article>
         </div>
@@ -568,36 +708,40 @@
         </div>
 
         <article class="card project project-card figma-project">
-          <div>
+          <div class="thesis-content">
             <h3>Designing and Evaluating Transformer-Based Pipelines for Urgency Detection in Financial Product Complaints</h3>
             <div class="project-meta">
               <span class="tag">Data preprocessing</span>
               <span class="tag">NLP tasks</span>
               <span class="tag">BERT fine-tuning</span>
             </div>
-            <p class="muted">
-              This thesis explored how natural language processing can support the prioritization of consumer complaints by identifying signals of urgency within complaint texts. 
-              Starting from a real-world dataset of financial complaints, the project focused on designing and evaluating a complete NLP pipeline that combines complaint classification and sentiment analysis to derive an urgency indicator.
-              The workflow began with data preprocessing and dataset splitting, followed by training transformer-based models for complaint-type classification. The models were fine-tuned and evaluated on an HPC cluster using a Slurm-based 
-              scheduler to enable systematic experimentation and checkpoint selection. In parallel, a sentiment analysis module compared multiple pretrained transformer models to extract sentiment signals from the complaints. 
-              The outputs of both tasks were then combined to produce an urgency metric, illustrating how different NLP components can be integrated into a practical decision-support pipeline.           
-             </p>
+            <div class="thesis-summary">
+              <p class="muted">
+                This thesis explored how natural language processing can support the prioritization of consumer complaints by identifying signals of urgency within complaint texts. 
+                Starting from a real-world dataset of financial complaints, the project focused on designing and evaluating a complete NLP pipeline that combines complaint classification and sentiment analysis to derive an urgency indicator.
+                The workflow began with data preprocessing and dataset splitting, followed by training transformer-based models for complaint-type classification. The models were fine-tuned and evaluated on an HPC cluster using a Slurm-based 
+                scheduler to enable systematic experimentation and checkpoint selection. In parallel, a sentiment analysis module compared multiple pretrained transformer models to extract sentiment signals from the complaints. 
+                The outputs of both tasks were then combined to produce an urgency metric, illustrating how different NLP components can be integrated into a practical decision-support pipeline.
+              </p>
+              <ul class="project-list muted">
+                <li><strong>Data preprocessing</strong> - cleaned and split the complaint dataset into training and test sets</li>
+                <li><strong>Text representation</strong> - tokenized complaints texts using BERT tokenizers</li>
+                <li><strong>Complaint classification</strong> - fine-tuned BERT and FinBERT models to predict complaint types</li>
+                <li><strong>Model experimentation</strong> - ran training jobs on an HPC cluster using SLURM</li>
+                <li><strong>Sentiment analysis</strong> - compared multiple transformer models (FinBERT-tone, Twitter RoBERTa, multilingual BERT, DistilRoBERTa)</li>
+                <li><strong>Urgency Estimation</strong> - combined classification outputs and sentiment scores to derive an urgency metric</li>
+              </ul>
+            </div>
              <p class="muted">
               The project emphasized not only model performance but also pipeline structure, evaluation logic, and the practical applicability of NLP systems in complaint-management contexts.
              </p>
-            <ul class="project-list muted">
-              <li><strong>Data preprocessing</strong> - cleaned and split the complaint dataset into training and test sets</li>
-              <li><strong>Text representation</strong> - tokenized complaints texts using BERT tokenizers</li>
-              <li><strong>Complaint classification</strong> - fine-tuned BERT and FinBERT models to predict complaint types</li>
-              <li><strong>Model experimentation</strong> - ran training jobs on an HPC cluster using SLURM</li>
-              <li><strong>Sentiment analysis</strong> - compared multiple transformer models (FinBERT-tone, Twitter RoBERTa, multilingual BERT, DistilRoBERTa)</li>
-              <li><strong>Urgency Estimation</strong> - combined classification outputs and sentiment scores to derive an urgency metric</li>
-            </ul>
           </div>
-          <div>
+          <div class="thesis-pipeline">
             <h3>Pipeline Overview</h3>
             <div class="proof">
-             <img src="asset/images/pipeline.jpg" alt="Pipeline diagram">
+              <button class="image-trigger" type="button" data-expand-image="asset/images/pipeline.jpg" aria-label="Expand pipeline diagram">
+                <img src="asset/images/pipeline.jpg" alt="Pipeline diagram">
+              </button>
             </div>
           </div>
         </article>
@@ -606,10 +750,9 @@
           <div>
             <h3>OpenMove Internship</h3>
             <div class="project-meta">
-              <span class="tag">UX/UI Internship</span>
-              <span class="tag">Figma</span>
-              <span class="tag">Requirements</span>
-              <span class="tag">Kotlin</span>
+              <span class="tag">Stakeholder Interviews</span>
+              <span class="tag">Requirement Translation</span>
+              <span class="tag">UI/UX Prototyping</span>
             </div>
             <p class="muted">
             During my internship at OpenMove in Trento, I worked on the early design of a customer-care handling solution within the broader context of digital mobility services. 
@@ -628,6 +771,7 @@
           <div>
             <h3>Proof of work</h3>
             <div class="proof proof-embed">
+              <button class="expand-embed-btn" type="button" data-expand-embed aria-label="Expand OpenMove prototype">Expand</button>
               <iframe
                 title="OpenMove prototype"
                 src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F2WomZlc21WDT9HHEcZoKUj%2FCustomer-Service%3Fnode-id%3D0-1%26t%3DLDvB04jBcInx0nQl-1"
@@ -640,6 +784,11 @@
         <article class="card project figma-project">
           <div>
             <h3>Start-up Lab - From idea validation to MVP design</h3>
+            <div class="project-meta">
+              <span class="tag">Problem Validation</span>
+              <span class="tag">MVP Design</span>
+              <span class="tag">Team Leadership</span>
+            </div>
             <p class="muted">
               During the Start-up Lab at the School of Innovation in Trento, I worked in a team-based project focused on the early stages of start-up creation, from idea generation to problem validation, MVP definition, and basic cash-flow analysis. 
               As team leader, I coordinated the group’s work across different phases of the project and contributed to shaping both the problem framing and the solution direction. 
@@ -658,6 +807,7 @@
           <div>
             <h3>Proof of work</h3>
             <div class="proof proof-embed">
+              <button class="expand-embed-btn" type="button" data-expand-embed aria-label="Expand MVP prototype">Expand</button>
               <iframe
                 title="MVP prototype"
                 src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2Fn5NnyaraeGJjT2q2Hwbrxx%2FRoutely-MVP%3Fnode-id%3D1-4%26p%3Df%26t%3DBHfzEHr03QXgZUJu-1%26scaling%3Dscale-down%26content-scaling%3Dfixed%26page-id%3D0%253A1%26starting-point-node-id%3D1%253A4"
@@ -686,16 +836,16 @@
 
           <div class="projects-list">
             <div class="stat">
-              <strong>Deep Learning - CLIP based vision language models</strong>
-              <span>Exploring multimodal learning architectures based on CLIP, focusing on how visual and textual embeddings can be aligned to support cross-modal understanding tasks.</span>
+              <strong>Deep Learning - Multimodal Image Retrieval with CLIP Architectures</strong>
+              <span>Exploring a deep learning project on multimodal image retrieval based on the CLAY framework, with a focus on conditioning similarity through vision-language embeddings. The work involves designing a new approach beyond rigid SVD-based fusion and evaluating it on the CELEB-A dataset.</span>
             </div>
             <div class="stat">
-              <strong>Natural Language Processing - Transformer experiments</strong>
-              <span>Investigating transformer-based methods for classification and text understanding across different NLP tasks.</span>
+              <strong>Natural Language Processing - Transformer Optimization and GPT-2 Adaptation</strong>
+              <span>Improving a GPT-2 language model through systematic hyperparameter optimization and architectural modifications aimed at reducing perplexity. The project also explores parameter-efficient fine-tuning by implementing LoRA adapters from scratch and adapting a pre-trained transformer model.</span>
             </div>
             <div class="stat">
-              <strong>Autonomous Software Agents - Tool use and planning</strong>
-              <span>Studying how agents can break down tasks, use tools, and coordinate multi-step workflows reliably.</span>
+              <strong>Autonomous Software Agents - Agent Design with BDI Planning</strong>
+              <span>Developing an autonomous software agent capable of sensing the environment, managing beliefs, and selecting actions to achieve goals in a simulated parcel-delivery environment. The project explores BDI architectures and planning strategies to enable agents to reason, plan, and dynamically adapt their behavior during gameplay.</span>
             </div>
             <div class="stat">
               <strong>Designing Large-Scale AI Systems</strong>
@@ -792,5 +942,96 @@
       © 2026 Rimsha Afzal
     </div>
   </footer>
+
+  <div class="image-modal" id="imageModal" aria-hidden="true">
+    <div class="image-modal-content">
+      <button class="image-modal-close" type="button" id="imageModalClose" aria-label="Close expanded image">x</button>
+      <img id="imageModalImg" src="" alt="Expanded project visual">
+      <iframe id="imageModalFrame" title="Expanded prototype" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const modal = document.getElementById('imageModal');
+      const modalImg = document.getElementById('imageModalImg');
+      const modalFrame = document.getElementById('imageModalFrame');
+      const closeBtn = document.getElementById('imageModalClose');
+      const imageTriggers = document.querySelectorAll('[data-expand-image]');
+      const embedTriggers = document.querySelectorAll('[data-expand-embed]');
+
+      if (!modal || !modalImg || !modalFrame || !closeBtn) {
+        return;
+      }
+
+      if (!imageTriggers.length && !embedTriggers.length) {
+        return;
+      }
+
+      const showImage = function (src, alt) {
+        modalFrame.style.display = 'none';
+        modalFrame.src = '';
+        modalImg.style.display = 'block';
+        modalImg.src = src;
+        modalImg.alt = alt;
+      };
+
+      const showEmbed = function (src, title) {
+        modalImg.style.display = 'none';
+        modalImg.src = '';
+        modalFrame.style.display = 'block';
+        modalFrame.title = title || 'Expanded prototype';
+        modalFrame.src = src;
+      };
+
+      const closeModal = function () {
+        modal.classList.remove('open');
+        modal.setAttribute('aria-hidden', 'true');
+        modalImg.src = '';
+        modalImg.style.display = 'none';
+        modalFrame.style.display = 'none';
+        modalFrame.src = '';
+      };
+
+      imageTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          const src = trigger.getAttribute('data-expand-image');
+          const preview = trigger.querySelector('img');
+          showImage(src || '', preview ? preview.alt : 'Expanded image');
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      embedTriggers.forEach(function (trigger) {
+        trigger.addEventListener('click', function () {
+          const embedContainer = trigger.closest('.proof-embed');
+          const iframe = embedContainer ? embedContainer.querySelector('iframe') : null;
+
+          if (!iframe || !iframe.src) {
+            return;
+          }
+
+          showEmbed(iframe.src, iframe.title);
+          modal.classList.add('open');
+          modal.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      closeBtn.addEventListener('click', closeModal);
+
+      modal.addEventListener('click', function (event) {
+        if (event.target === modal) {
+          closeModal();
+        }
+      });
+
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && modal.classList.contains('open')) {
+          closeModal();
+        }
+      });
+    })();
+  </script>
 </body>
 </html>
