@@ -386,6 +386,59 @@
       justify-self: center;
     }
 
+    .community-layout {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(320px, 0.9fr);
+      gap: 1.25rem;
+      align-items: stretch;
+    }
+
+    .community-media {
+      position: relative;
+      min-height: 320px;
+      overflow: hidden;
+      border-radius: var(--radius);
+    }
+
+    .community-slide {
+      position: absolute;
+      inset: 0;
+      opacity: 0;
+      transition: opacity 0.45s ease;
+      background: linear-gradient(135deg, rgba(143,91,215,0.08), rgba(255,255,255,0.95));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .community-slide.active {
+      opacity: 1;
+    }
+
+    .community-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .community-placeholder {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 1.25rem;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.72);
+      border: 1px dashed rgba(111,53,195,0.18);
+      border-radius: var(--radius);
+      pointer-events: none;
+    }
+
     .tag {
       display: inline-flex;
       align-items: center;
@@ -550,6 +603,7 @@
       .hero-grid,
       .project,
       .figma-project,
+      .community-layout,
       .contact-card,
       .grid-2,
       .skills-grid,
@@ -608,7 +662,7 @@
       <div class="container">
         <div class="hero-box">
           <h1>RIMSHA AFZAL</h1>
-          <h2>Product Analyst | Junior AI Engineer | AI/Data Analyst</h2>
+          <h2>AI Product Analyst | Junior Machine Learning Engineer</h2>
           <h3>Turning real-world problems and user needs into structured AI-driven solutions</h3>
         </div>
       </div>
@@ -628,7 +682,7 @@
           <div class="hero-actions">
             <a class="btn btn-primary" href="#projects">View Projects</a>
             <a class="btn btn-secondary" href="#contact">Get in Touch</a>
-            <a class="btn btn-secondary" href="/cv.pdf" target="_blank" rel="noopener">Download CV</a>
+            <a class="btn btn-secondary" href="asset/cv/main.pdf" target="_blank" rel="noopener">Download CV</a>
           </div>
         </div>
 
@@ -695,7 +749,7 @@
       </div>
     </section>
 
-    <section id="projects">
+    <section id="community">
       <div class="container">
         <div class="section-heading">
           <div>
@@ -816,6 +870,48 @@
             </div>
           </div>
         </article>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Community Engagement</div>
+            <h2>Volunteering experience</h2>
+          </div>
+        </div>
+
+        <div class="community-layout">
+          <div class="card">
+            <h3>Italian Tech Week Volunteer 2025 - Volunteer Experience</h3>
+            <p class="muted" style="margin: 0 0 0.75rem;">3-day international technology conference, Turin, Italy</p>
+            <p>During Italian Tech Week, I supported front-desk operations and guest registration while also gaining first-hand exposure to how large-scale tech events are organized. 
+              The experience gave me the chance to observe event logistics, attendee flow, and talks on innovation, entrepreneurship, and technology.
+            </p>
+            <h3>Highlights</h3>
+            <ul class="project-list muted">
+              <li>Guest reception and registration support</li>
+              <li>Exposure to large-scale tech event operations</li>
+              <li>Attendance at talks on startups, AI, and innovation</li>
+            </ul>
+          </div>
+
+          <div class="card community-media" aria-label="Community engagement image placeholder">
+            <div class="community-slide active" data-community-slide="0">
+              <img src="asset/images/80eb1696-dcda-4495-a957-8150dd161156.JPG" alt="Community engagement photo 1">
+            </div>
+            <div class="community-slide" data-community-slide="1">
+              <img src="asset/images/857D8F47-7DFE-4613-B77F-589A850CA1BA.JPG" alt="Community engagement photo 2">
+            </div>
+            <div class="community-slide" data-community-slide="2">
+              <img src="asset/images/b24c4e42-367a-4181-8096-8d1e846680e2.JPG" alt="Community engagement photo 3">
+            </div>
+            <div class="community-slide" data-community-slide="3">
+              <img src="asset/images/IMG_9223.jpg" alt="Community engagement photo 4">
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -1031,6 +1127,23 @@
           closeModal();
         }
       });
+
+      const communitySlides = Array.from(document.querySelectorAll('[data-community-slide]'));
+
+      if (communitySlides.length > 1) {
+        let communitySlideIndex = 0;
+
+        const showCommunitySlide = function (index) {
+          communitySlides.forEach(function (slide, slideIndex) {
+            slide.classList.toggle('active', slideIndex === index);
+          });
+        };
+
+        window.setInterval(function () {
+          communitySlideIndex = (communitySlideIndex + 1) % communitySlides.length;
+          showCommunitySlide(communitySlideIndex);
+        }, 5000);
+      }
     })();
   </script>
 </body>

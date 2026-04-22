@@ -1,44 +1,204 @@
-\documentclass[a4paper,11pt]{article}
-\input{config/config.tex}
+\documentclass[11pt]{article}
+
+\usepackage[a4paper,margin=0.60in]{geometry}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{xcolor}
+\usepackage{tabularx}
+\usepackage{qrcode}
+
+% ---- Colors ----
+\definecolor{violettitle}{RGB}{124,58,237}
+\definecolor{textgray}{RGB}{100,100,100}
+
+\hypersetup{
+	colorlinks=true,
+	urlcolor=violettitle
+}
+
+% ---- Section titles ----
+\titleformat{\section}
+{\large\bfseries\color{violettitle}}
+{}{0em}{}[\titlerule]
+
+\setlength{\parindent}{0pt}
+
+\setlist[itemize]{
+noitemsep,
+topsep=2pt,
+itemsep=2pt,
+leftmargin=1.4em
+}
+
+% ---- Entry formatting ----
+\newcommand{\entry}[3]{
+\begin{tabularx}{\textwidth}{@{}Xr@{}}
+\textbf{#1} & {\color{textgray}#2} \\
+{\color{textgray}#3} & \\
+\end{tabularx}
+\vspace{-0.9em}
+}
+
 \begin{document}
+
+%------------------------------------------------
+% Header
+%------------------------------------------------
+
 \begin{center}
-    {\LARGE\textbf{Rimsha Afzal}}\\
-    {\small AI-focused Programmer | NLP \& Machine Learning Enthusiast}\\[1em]
-    {\small Email: rimsha@example.com \; • \; Phone: +39 123 456 7890 \; • \; GitHub: @rimsha-afzal}
+
+{\LARGE \textbf{Rimsha Afzal}} \\[6pt]
+
+AI Product Analyst | Junior Machine Learning Engineer \\[6pt]
+
+Portfolio: \href{https://rimsha-afzal.github.io}{rimsha-afzal.github.io} \quad
+GitHub: \href{https://github.com/rimsha-afzal}{github.com/rimsha-afzal} \quad
+LinkedIn: \href{https://www.linkedin.com/in/rimsha-afzal-b0537123b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3BTbhXtoP0RS6goeD96Ggzjg%3D%3D}{rimsha-afzal} \\[4pt]
+{\color{textgray}rimshaafzal2016@gmail.com $|$ +39 3913286575 $|$ Trento, Italy}
+
 \end{center}
 
-\vspace{1em}
-\hrule
-\vspace{1em}
+\vspace{-6pt}
 
-\section*{Profilo}
-Sono una sviluppatrice di soluzioni AI con esperienza in NLP, deep learning e progettazione di prodotti user-centric. Cerco opportunità in R\&D e sviluppo di modelli produttivi.
+\section*{About Me}
 
-\section*{Esperienza}
+Master’s student in Artificial Intelligence Systems at the University of Trento with a background combining technical AI experimentation, NLP research, and user-centered design. I enjoy working at the intersection of technology and problem understanding, where technical solutions need to be shaped around real user needs. My strengths lie in combining hands-on technical work with strong communication and stakeholder engagement, allowing me to translate complex AI capabilities into clear and practical solution ideas.
+%------------------------------------------------
+% Education
+%------------------------------------------------
+
+\section*{Education}
+
+\textbf{University of Trento, Italy} \hfill {\color{textgray}2025 -- Ongoing} \\[-1pt]
+Master's Degree in Artificial Intelligence Systems \\[4pt]
+{\color{textgray}Relevant coursework: Machine Learning, Natural Language Processing, Deep Learning, Autonomous Software Agents, Designing Large Scale AI Systems}
+
+\vspace{8pt}
+
+\textbf{University of Trento, Italy} \hfill {\color{textgray}2021 -- 2025} \\[-1pt]
+Bachelor's Degree in Computer Science \\[4pt]
+{\color{textgray}Relevant coursework: Algorithms and Data Structures, Software Engineering, Human-Computer Interaction}
+
+%------------------------------------------------
+% Projects
+%------------------------------------------------
+
+\section*{Projects}
+
+\textbf{Transformer-Based NLP Pipeline for Complaint Urgency Detection} \hfill {\color{textgray}Bachelor’s Thesis} \\[-0.8em]
 \begin{itemize}
-    \item \textbf{Data Scientist}, Azienda X (2024 - presente)\\
-      Sviluppo pipeline di NLP e modelli transformer per analisi testuale e classificazione semantica.
-    \item \textbf{Machine Learning Intern}, Azienda Y (2023)\\
-      Implementazione e ottimizzazione di reti neurali convoluzionali per document understanding.
+\item Designed and evaluated an \textbf{NLP pipeline} for prioritizing financial complaints by combining \textbf{complaint classification} and \textbf{sentiment analysis}
+\item Preprocessed and split a real-world complaint dataset, then tokenized complaint texts using \textbf{BERT-based representations}
+\item Fine-tuned \textbf{BERT} and \textbf{FinBERT} models for complaint-type classification and managed systematic experimentation on an \textbf{HPC cluster using Slurm}
+\item Compared multiple pretrained transformer models for sentiment analysis, including \textbf{FinBERT-tone, Twitter RoBERTa, multilingual BERT, and DistilRoBERTa}
+\item Combined classification outputs and sentiment signals into an \textbf{urgency metric} to explore a practical decision-support pipeline for complaint prioritization
 \end{itemize}
 
-\section*{Istruzione}
+\vspace{4pt}
+
+\textbf{OpenMove Internship --- Customer-Care Workflow Design} \\[-0.8em]
 \begin{itemize}
-    \item M.Sc. in Computer Science, Università degli Studi di ... (2022 - 2024)
-    \item B.Sc. in Ingegneria Informatica, Università degli Studi di ... (2019 - 2022)
+\item Investigated workflow pain points and operational needs through \textbf{stakeholder interviews} in the context of a customer-care handling solution
+\item Translated qualitative input into \textbf{design requirements}, identifying how needs should be reflected in navigation flows, screen logic, and functional choices
+\item Designed \textbf{Figma mockups} and an \textbf{interactive prototype} to turn early requirements into a tangible solution concept
+\item Defined interface choices with attention to \textbf{usability}, \textbf{clarity of actions}, and support for the underlying customer-care process
 \end{itemize}
 
-\section*{Competenze}
+\vspace{4pt}
+
+\textbf{Start-up Lab --- Idea Validation and MVP Design} \\[-0.8em]
 \begin{itemize}
-    \item Python, PyTorch, TensorFlow, scikit-learn
-    \item NLP, Transformers, reti neurali, data engineering
-    \item Git, Docker, CI/CD, Linux
+\item Led a team project through the early stages of start-up development, from \textbf{idea generation} and \textbf{problem validation} to \textbf{MVP definition}
+\item Conducted \textbf{external interviews} to test assumptions, gather feedback, and assess whether the identified problem was relevant and worth solving
+\item Contributed to translating early ideas into a more concrete solution concept supported by an \textbf{MVP mockup}
+\item Prepared and delivered presentations communicating the project’s logic, development path, and business potential
+\item Supported early feasibility assessment through \textbf{basic cash-flow reasoning} and sustainability considerations
 \end{itemize}
 
-\section*{Progetti selezionati}
+%------------------------------------------------
+% Community Engagement
+%------------------------------------------------
+
+\section*{Community Engagement}
+
+\textbf{Italian Tech Week Volunteer} \hfill {\color{textgray}2025} \\[-0.2em]
+{\color{textgray}Turin, Italy}
+
 \begin{itemize}
-    \item \textbf{CV Parser AI} - modello BERT per estrazione informazioni da curriculum.
-    \item \textbf{Web Portfolio Analyzer} - tool in Python + Flask per metriche automatiche di portfolio.
+\item Supported event operations during a 3-day international technology conference
+\item Managed front-desk guest reception and participant registration
+\item Observed event organization and logistics behind large-scale tech conferences
+\item Attended talks from industry leaders on entrepreneurship, technology, and innovation
 \end{itemize}
+
+%------------------------------------------------
+% Ongoing AI Projects
+%------------------------------------------------
+
+\section*{Current AI Projects}
+
+\textbf{Multimodal Image Retrieval with CLIP Architectures} \\[-0.2em]
+{\color{textgray}Exploring multimodal image retrieval through vision-language embeddings and similarity conditioning in CLIP-based architectures.}
+
+\vspace{6pt}
+
+\textbf{Planning-Based Autonomous Software Agents} \\[-0.2em]
+{\color{textgray}Studying autonomous agent design through planning, belief management, and decision-making in dynamic environments.}
+
+\vspace{6pt}
+
+\textbf{Optimizing Transformer Language Models} \\[-0.2em]
+{\color{textgray}Exploring GPT-2 optimization through hyperparameter tuning, architectural changes, and parameter-efficient fine-tuning with LoRA.}
+
+%------------------------------------------------
+% Skills
+%------------------------------------------------
+
+\section*{Technical Skills}
+
+\textbf{AI \& Machine Learning} \\
+{\color{textgray}Machine Learning, Natural Language Processing, Deep Learning, Transformer Architectures, Language Modeling}
+
+\vspace{4pt}
+
+\textbf{Programming} \\
+{\color{textgray}Python, Java, HTML, CSS, Kotlin}
+
+\vspace{4pt}
+
+\textbf{ML Frameworks \& Libraries} \\
+{\color{textgray}PyTorch, HuggingFace, Transformers}
+
+\vspace{4pt}
+
+\textbf{Tools} \\
+{\color{textgray}Git, Figma, HPC (Slurm)}
+
+\vspace{4pt}
+
+\textbf{Product \& Research Skills} \\
+{\color{textgray}Problem Framing, Requirement Translation, Stakeholder Interviews, User Research, Prototyping}
+
+%------------------------------------------------
+% Languages
+%------------------------------------------------
+
+\section*{Languages}
+
+English — {\color{textgray}C1} \\
+Italian — {\color{textgray}C1} \\
+Urdu — {\color{textgray}B2}
+
+\vspace{10pt}
+
+\begin{flushright}
+\begin{minipage}[b]{0.16\textwidth}
+\raggedleft {\color{textgray}\textbf{Portfolio}}
+\end{minipage}\hspace{0.5cm}%
+\begin{minipage}[b]{0.18\textwidth}
+\raggedleft \qrcode[height=2.2cm]{https://rimsha-afzal.github.io}
+\end{minipage}
+\end{flushright}
 
 \end{document}
