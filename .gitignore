@@ -1,0 +1,35 @@
+# Environment and secrets
+.env
+.env.*
+*.key
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+.ipynb_checkpoints/
+
+# Data and model files
+data/
+models/
+checkpoints/
+*.pt
+*.pth
+*.ckpt
+
+# LaTeX temporary files
+*.aux
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.synctex.gz
+
+# Private CV source
+asset/cv/main.tex
+asset/cv/config/
+
+# Operating system
+.DS_Store
+Thumbs.db
