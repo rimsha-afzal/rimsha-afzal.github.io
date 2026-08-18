@@ -1,0 +1,180 @@
+﻿<section id="projects">
+      <div class="container">
+        <div class="section-heading">
+          <div>
+            <div class="eyebrow">Selected Work</div>
+            <h2>Featured projects</h2>
+          </div>
+          <p>
+            Selected technical and product work spanning applied AI, system prototyping and user research.         </p>
+        </div>
+
+        <article class="card project project-card expandable-project" tabindex="0" role="button" aria-expanded="false">
+          <div>
+            <h3>Conversational Clustering for Service-Desk Tickets</h3>
+
+            <div class="project-meta">
+              <span class="tag">LLMs</span>
+              <span class="tag">Clustering</span>
+              <span class="tag">FastAPI</span>
+              <span class="tag">React</span>
+              <span class="tag">Docker</span>
+            </div>
+
+            <p class="muted">
+              Team project developed for the Large Scale AI Systems course.
+              We built a working local application that allows users to explore and
+              iteratively refine clusters of internal helpdesk tickets through
+              natural-language instructions.
+            </p>
+
+            <p class="muted project-extra">
+              The system combines an LLM-based intent parser with embeddings and
+              clustering methods including K-Means and GMM. User instructions are
+              converted into structured constraints, allowing the clustering to be
+              recomputed and progressively refined through feedback.
+            </p>
+
+            <h3 class="project-extra">System Highlights</h3>
+            <ul class="project-list muted project-extra">
+              <li>Conversational interface for exploring and refining ticket clusters</li>
+              <li>LLM-based conversion of natural-language requests into structured constraints</li>
+              <li>Embedding-based clustering using K-Means and Gaussian Mixture Models</li>
+              <li>React + Vite frontend connected to a FastAPI backend</li>
+              <li>Dockerized local setup with automated tests and documented API endpoints</li>
+            </ul>
+
+            <p class="muted project-extra">
+              <strong>Team project · Working local prototype · Shared team repository · Not publicly available </strong>
+            </p>
+          </div>
+
+          <div class="project-proof">
+            <h3>Proof of work</h3>
+
+            <div class="proof-grid proof-grid-compact">
+              <div class="proof">
+                <button class="image-trigger" type="button" data-expand-image="asset/images/conversational-clustering-homepage.png" aria-label="Expand conversational clustering interface screenshot">
+                  <img src="asset/images/conversational-clustering-homepage.png" alt="Conversational clustering interface screenshot">
+                </button>
+              </div>
+
+              <div class="proof proof-white">
+                <button class="image-trigger" type="button" data-expand-image="asset/images/conversational-clustering-architecture-white.png" aria-label="Expand conversational clustering architecture diagram">
+                  <img src="asset/images/conversational-clustering-architecture-white.png" alt="Conversational clustering architecture diagram">
+                </button>
+              </div>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project project-card expandable-project" tabindex="0" role="button" aria-expanded="false">
+          <div>
+            <h3>Compositional Image Retrieval with CLIP</h3>
+
+            <div class="project-meta">
+              <span class="tag">Deep Learning</span>
+              <span class="tag">CLIP</span>
+              <span class="tag">Multimodal AI</span>
+              <span class="tag">PyTorch</span>
+              <span class="tag">Model Evaluation</span>
+            </div>
+
+            <p class="muted">
+              Team project developed for the Deep Learning course, focused on
+              compositional image retrieval with CLIP on the CelebA dataset.
+              Starting from a training-free CLIP arithmetic baseline, we explored
+              different strategies for combining textual conditions, visual attribute
+              directions, and the reference image embedding.
+            </p>
+
+            <p class="muted project-extra">
+              We compared gated text fusion, visual-direction retrieval, hybrid
+              text-visual fusion, prompt ensembling, and reliability-based variants,
+              selecting hyperparameters on the validation split and evaluating the
+              final methods on the held-out test set.
+            </p>
+
+            <h3 class="project-extra">Results</h3>
+            <ul class="project-list muted project-extra">
+              <li>Improved Recall@10 from 0.116 for the CLIP baseline to 0.174</li>
+              <li>Achieved approximately 49.6% relative improvement over the baseline</li>
+              <li>Best performance obtained by combining visual directions with a prompt-difference text representation</li>
+              <li>Identified saturation in later fixed-weight fusion strategies, suggesting limits of handcrafted global weighting</li>
+            </ul>
+
+            <p class="muted project-extra">
+              <strong>Team project · Experimental notebook available for download</strong>
+            </p>
+          </div>
+
+          <div class="project-proof">
+            <div class="proof-heading">
+              <h3>Proof of work</h3>
+              <a class="btn btn-secondary" href="asset/notebooks/compositional-image-retrieval-working-notebook.ipynb" download>
+                Download notebook
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="card project project-card figma-project expandable-project" tabindex="0" role="button" aria-expanded="false">
+          <div>
+            <h3>Customer-Care Product Prototype - OpenMove Internship</h3>
+
+            <div class="project-meta">
+              <span class="tag">Stakeholder Interviews</span>
+              <span class="tag">Product Discovery</span>
+              <span class="tag">UI/UX</span>
+              <span class="tag">Figma</span>
+            </div>
+
+            <p class="muted">
+              Curricular internship at OpenMove focused on the early-stage design of
+              an internal customer-care solution. I started by interviewing stakeholders
+              to understand the existing workflow, operational pain points and requirements
+              for a new interface.
+            </p>
+
+            <p class="muted project-extra">
+              I translated those insights into functional requirements, navigation flows
+              and interface decisions, then designed an interactive Figma prototype to
+              make the proposed solution tangible and validate the overall workflow.
+            </p>
+
+            <h3 class="project-extra">Project Highlights</h3>
+            <ul class="project-list muted project-extra">
+              <li>Conducted stakeholder interviews to understand workflows, needs and pain points</li>
+              <li>Translated qualitative findings into functional and interface requirements</li>
+              <li>Defined navigation flows, screen logic and key user interactions</li>
+              <li>Designed an interactive Figma prototype for the proposed customer-care solution</li>
+            </ul>
+
+            <p class="muted project-extra">
+              <strong>Curricular internship · September 2024 – January 2025 · Interactive prototype</strong>
+            </p>
+          </div>
+
+          <div class="project-proof">
+            <h3>Proof of work</h3>
+
+            <div class="proof proof-embed">
+              <button
+                class="expand-embed-btn"
+                type="button"
+                data-expand-embed
+                aria-label="Expand OpenMove prototype">
+                Expand
+              </button>
+
+              <iframe
+                title="OpenMove prototype"
+                src="https://www.figma.com/embed?embed_host=share&url=https%3A%2F%2Fwww.figma.com%2Fproto%2F2WomZlc21WDT9HHEcZoKUj%2FCustomer-Service%3Fnode-id%3D0-1%26t%3DLDvB04jBcInx0nQl-1"
+                allowfullscreen>
+              </iframe>
+            </div>
+          </div>
+        </article>
+
+      </div>
+    </section>
