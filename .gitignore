@@ -20,15 +20,18 @@ checkpoints/
 
 # LaTeX temporary files
 *.aux
+*.bbl
+*.bcf
+*.blg
 *.fdb_latexmk
 *.fls
+*.lof
 *.log
+*.lot
 *.out
 *.synctex.gz
-
-# Private CV source
-asset/cv/main.tex
-asset/cv/config/
+*.toc
+*.xdv
 
 # Operating system
 .DS_Store

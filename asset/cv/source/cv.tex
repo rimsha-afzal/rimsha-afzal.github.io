@@ -1,0 +1,108 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[margin=0.55in]{geometry}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\usepackage{enumitem}
+\usepackage{titlesec}
+\usepackage{tabularx}
+
+\definecolor{accent}{HTML}{0E6B57}
+\definecolor{textgray}{HTML}{4B5563}
+
+\hypersetup{
+  colorlinks=true,
+  urlcolor=accent,
+  linkcolor=accent
+}
+
+\pagenumbering{gobble}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{1.5pt}
+\setlist[itemize]{leftmargin=*, nosep, topsep=1pt, itemsep=1pt}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0pt}{}[\vspace{-3pt}\titlerule]
+\titlespacing*{\section}{0pt}{7pt}{4pt}
+
+\newcommand{\role}[2]{\textbf{#1}{\color{textgray}\space\textbar{}\space#2}}
+\newcommand{\place}[1]{{\color{textgray}#1}}
+
+\begin{document}
+
+\begin{center}
+  {\LARGE\bfseries Rimsha Afzal}\\[-1pt]
+  {\large AI Solution Engineer \textbar{} Applied AI \& Technical Product}\\[3pt]
+  Trento, Italy \textbar{}
+  +39 3913286575 \textbar{}
+  \href{mailto:rimshaafzal2016@gmail.com}{rimshaafzal2016@gmail.com} \textbar{}
+  \href{https://rimsha-afzal.github.io/}{Portfolio} \textbar{}
+  \href{https://github.com/rimsha-afzal}{GitHub} \textbar{}
+  \href{https://www.linkedin.com/in/rimsha-afzal-b0537123b/}{LinkedIn}
+\end{center}
+
+\section*{Profile}
+MSc Artificial Intelligence Systems student with a Computer Science background, combining applied AI development with product discovery and rapid prototyping. Experience spans LLM-enabled systems, deep learning, NLP, stakeholder research and UI/UX prototyping, supported by a strong customer-facing and communication background.
+
+\section*{Experience}
+\role{Product Discovery \& UI/UX Intern -- OpenMove}{Sep 2024 -- Jan 2025}\\
+\place{Trento, Italy}
+\begin{itemize}
+  \item Conducted stakeholder interviews to understand customer-care workflows, pain points and operational requirements.
+  \item Translated findings into functional requirements, navigation flows and interface logic, then designed an interactive Figma prototype for an internal support solution.
+\end{itemize}
+
+\role{Sales Advisor -- MediaWorld, PC Department}{Jul 2022 -- Nov 2023}
+\begin{itemize}
+  \item Advised customers on computers and technology products, translating technical specifications into understandable product recommendations and selling related services.
+  \item Supported day-to-day department operations, including product display, organization and customer support.
+\end{itemize}
+
+\section*{Selected AI Projects}
+\role{Conversational Clustering for Service-Desk Tickets}{Large Scale AI Systems}\\
+\place{Two-person team project}
+\begin{itemize}
+  \item Built a working conversational application for iteratively exploring and refining helpdesk-ticket clusters using natural-language instructions.
+  \item Combined an LLM-based intent parser, embeddings, K-Means/GMM clustering, FastAPI, React and Docker to convert user instructions into structured constraints and recompute clusters.
+\end{itemize}
+
+\role{Compositional Image Retrieval with CLIP}{Deep Learning}\\
+\place{Three-person team project}
+\begin{itemize}
+  \item Evaluated training-free methods for compositional image retrieval on CelebA using CLIP, including text/visual fusion, prompt ensembling and reliability-weighted variants.
+  \item Improved Recall@10 from 0.116 to 0.174, approximately +49.6\% relative improvement over the CLIP arithmetic baseline.
+\end{itemize}
+
+\role{NLP Pipeline for Urgency Detection in Financial Complaints}{Bachelor's Thesis}
+\begin{itemize}
+  \item Fine-tuned BERT and FinBERT classification models and evaluated transformer-based sentiment models on financial complaints using HPC/Slurm experimentation.
+  \item Combined classification and sentiment signals into an urgency indicator for complaint prioritization.
+\end{itemize}
+
+\textbf{Additional AI work:} ResNet-50 robustness under JPEG/WebP compression; BDI autonomous agent planning; GPT-2 optimization and LoRA implementation
+
+\section*{Education}
+\role{University of Trento}{2025 -- Present}\\
+MSc Artificial Intelligence Systems\\
+\place{Selected coursework: Machine Learning, Deep Learning, NLP, Autonomous Software Agents, Large Scale AI Systems}
+
+\role{University of Trento}{2021 -- 2025}\\
+BSc Computer Science\\
+\place{Selected coursework: Algorithms \& Data Structures, Software Engineering, Human-Computer Interaction}
+
+\section*{Skills}
+\textbf{AI \& Engineering:} Python, PyTorch, Hugging Face, LLMs, Transformers, NLP, Deep Learning, Clustering, Model Evaluation, HPC/Slurm\\
+\textbf{Product \& Prototyping:} Product Discovery, Stakeholder Interviews, Requirements Definition, Workflow Analysis, Figma, UI/UX Prototyping, AI-assisted Rapid Prototyping\\
+\textbf{Tools \& Technologies:} Git, FastAPI, React/Vite, Docker, HTML/CSS, Java
+
+\section*{Innovation \& Leadership}
+\textbf{Deep Tech Entrepreneurship Summer School -- Winning Pitch}\\
+Worked on the commercialization potential of a computational tumour-detection methodology, contributed to problem/stakeholder/market analysis, and delivered the team's winning final pitch.
+
+\textbf{Start-up Lab -- Team Leader}\\
+Led problem validation, user interviews and MVP definition in a team entrepreneurship project.
+
+\section*{Languages}
+English -- C1 \textbar{} Italian -- C1 \textbar{} Urdu -- B2
+
+\end{document}
