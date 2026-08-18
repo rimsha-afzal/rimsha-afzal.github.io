@@ -129,10 +129,23 @@ const initProjectInteractions = function () {
       const embedTriggers = document.querySelectorAll('[data-expand-embed]');
 
       expandableProjects.forEach(function (project) {
+        const toggleButton = project.querySelector('[data-toggle-project]');
+
         const toggleProject = function () {
           const isExpanded = project.classList.toggle('is-expanded');
           project.setAttribute('aria-expanded', String(isExpanded));
+
+          if (toggleButton) {
+            toggleButton.textContent = isExpanded ? 'Collapse' : 'Expand';
+          }
         };
+
+        if (toggleButton) {
+          toggleButton.addEventListener('click', function (event) {
+            event.stopPropagation();
+            toggleProject();
+          });
+        }
 
         project.addEventListener('click', function (event) {
           if (event.target.closest('a, button, iframe')) {
